@@ -1,0 +1,57 @@
+body {
+	background-color: #42c5f4;
+}
+
+header {
+	margin: 5px;
+	padding: 20px 10px;
+	background-color: orange;
+	color: white;
+	width: 250px;
+	font-size: 30px;
+}
+.container {
+	margin: 5px;
+	display: block;
+}
+.wrapper {
+	margin: 5px;
+	display: inline-flex;
+}
+.crystal {
+	margin-right: 5px;
+}
+.scoreBox {
+	background-color: #44726c;
+	margin: 5px;
+	width: 200px;
+	padding: 15px;
+	color: white;
+	font-size: 20px;
+}
+
+#rules {
+	background-color: #edcd5c;
+	width: 450px;
+	height: 350px;
+	padding: 20px 10px; 
+	font-weight: bold;
+	font-size: 20px;
+	color: #174927;
+	margin: 5px;
+}
+#numberToGuess {
+	background-color: #2f914f;
+	width: 150px;
+	height: 150px;
+}
+#tallies {
+	background-color: #46afb5;
+	height: 150px;
+	width: 100px;
+	margin-left: 5px;
+}
+#playerScore {
+	height: 100px;
+
+}
