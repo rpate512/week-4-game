@@ -1,5 +1,5 @@
 
-	var randomNumber = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+	var randomNumber = 100
 	var gemValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	var wins = 0;
 	var losses = 0;
@@ -11,73 +11,78 @@
 	var totalScore = 0;
 
 var updateNumberToGuess = function () {
-		numberToGuess = [Math.floor(Math.random() + randomNumber.length)];
-		document.querySelector("#numberToGuess").html(numberToGuess);
+		//numberToGuess = [Math.floor(Math.random() + randomNumber.length)] + 9;
+		numberToGuess = 9 + Math.floor(Math.random() * 100);
+		document.querySelector("#numberToGuess").innerHTML = "Your number to guess is: " + numberToGuess;
 };
 var updateGemValue1 = function () {
-	gemValue1[Math.floor(Math.random() * gemValues.length)];
-}
+	gemValue1 = Math.floor(Math.random() * gemValues.length);
+	$("#crystal1").attr("value", gemValue1);
+};
 var updateGemValue2 = function () {
-	gemValue1[Math.floor(Math.random() * gemValues.length)];
-}
+	gemValue2 = Math.floor(Math.random() * gemValues.length);
+	$("#crystal2").attr("value", gemValue2);
+};
 var updateGemValue3 = function () {
-	gemValue1[Math.floor(Math.random() * gemValues.length)];
-}
+	gemValue3 = Math.floor(Math.random() * gemValues.length);
+	$("#crystal3").attr("value", gemValue3);
+};
 var updateGemValue4 = function () {
-	gemValue1[Math.floor(Math.random() * gemValues.length)];
-}
+	gemValue4 = Math.floor(Math.random() * gemValues.length);
+	$("#crystal4").attr("value", gemValue4);
+};
 var updatetotalScore = function () {
 
 }
+
 var reset = function () {
-	numberToGuess = 0;
 	totalScore = 0;
 	gemValue1 = 0;
 	gemValue2 = 0;
 	gemValue3 = 0;
 	gemValue4 = 0;
+	updateNumberToGuess();
 };
 
-updateNumberToGuess ();
-updateGemValue1 ();
-updateGemValue2 ();
-updateGemValue3 ();
-updateGemValue4 ();
+// updateNumberToGuess();
+// updateGemValue1();
+// updateGemValue2();
+// updateGemValue3();
+// updateGemValue4();
 
-console.log (numberToGuess)
+updateNumberToGuess();
+updateGemValue1();
+updateGemValue2();
+updateGemValue3();
+updateGemValue4();
+
+console.log(numberToGuess);
 
 $(document).on("click", "button", function () { 
 
-		if ($(this).hasId("#crystal1")) {
-		
-		totalScore += $(this).attr("value");
-		};
-		if ($(this).hasId("#crystal2")) {
-		
-		totalScore += $(this).attr("value");
-		};
-		if ($(this).hasId("#crystal3")) {
-		
-		totalScore += $(this).attr("value");
-		};
-		if ($(this).hasId("#crystal4")) {
-			
-		totalScore += $(this).attr("value");
-		};
-	});
-
-
-	if (totalScore = numberToGuess) {
+	console.log($(this).attr("value"));
+	totalScore += parseInt($(this).attr("value"));
+	document.querySelector("#totalScoreBox").innerHTML = "Your total score: " + totalScore;
+	console.log(totalScore);
+	if (totalScore == numberToGuess) {
+		alert ("YOU WON! click ok to play again")
 		wins++;
-		document.querySelector("#wins").html(wins);
-		reset ();
+		$("#wins").html("Wins: " + wins);
+		reset();
+		document.querySelector("#totalScoreBox").innerHTML = "Your total score: " + totalScore;
 	}	
 
 	if (totalScore > numberToGuess) {
 		losses++;
-		document.querySelector("#losses").html(losses);
-		reset ();
+		alert ("You lost, sorry. Press ok to play again.")
+		$("#losses").html("Losses: " + losses);
+		reset();
+		document.querySelector("#totalScoreBox").innerHTML = "Your total score: " + totalScore;
 	}
+});
+
+
+	
 
 
 
